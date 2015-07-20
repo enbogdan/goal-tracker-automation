@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="Goal Tracker Test Suite" verbose="1" >
+  <test name="Goal Tracker Tests">
+    <classes>
+      <class name="com.bogdan.goal.GoalTrackerPositiveTest"/>
+	  <class name="com.bogdan.goal.GoalTrackerNegativeTest"/>
+    </classes>
+  </test>
+</suite>

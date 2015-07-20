@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.bogdan</groupId>
+  <artifactId>goal-tracker-automation</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>goal-tracker-automation</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <testng.version>6.9.6</testng.version>
+    <httpclient.version>4.5</httpclient.version>
+    
+    <test.config>test-config1</test.config>
+    <testng.suite>testng-default</testng.suite>
+    
+    <testng.xml.path>${project.basedir}/src/test/resources/testng</testng.xml.path>
+    <test.config.path>${project.basedir}/src/test/resources/properties</test.config.path>
+  </properties>
+
+  <dependencies>
+    <dependency>
+		<groupId>org.apache.httpcomponents</groupId>
+		<artifactId>httpclient</artifactId>
+		<version>${httpclient.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.testng</groupId>
+		<artifactId>testng</artifactId>
+		<version>${testng.version}</version>
+		<!--scope>test</scope-->
+	</dependency>
+	<dependency>
+		<groupId>org.codehaus.jackson</groupId>
+		<artifactId>jackson-mapper-asl</artifactId>
+		<version>1.9.13</version>
+	</dependency>
+  </dependencies>
+  
+  <build>
+	  <plugins>
+	      <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-surefire-plugin</artifactId>
+	        <version>2.18.1</version>
+	        <configuration>
+	          <suiteXmlFiles>
+	            <suiteXmlFile>${testng.xml.path}/${testng.suite}.xml</suiteXmlFile>
+	          </suiteXmlFiles>
+	          	<systemPropertyVariables>
+            		<test.config>${test.config.path}/${test.config}.properties</test.config>
+          		</systemPropertyVariables>
+	        </configuration>
+	      </plugin>
+	    </plugins>
+  </build>
+</project>
