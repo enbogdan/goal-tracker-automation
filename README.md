@@ -13,7 +13,8 @@ Optional Maven parameters:
 	eg: mvn clean install -Dtest.config=env_preprod -Dtestng.suite=suite_regression
     
 Assumption
-- goal-tracker-java app is up and running
+- goal-tracker-java app is up and running by default on localhost:8080 
+(host can be specified in properties file)
 - payload content type is application/json
 - goal service saves single goal
 - goals service returns all goals
